@@ -868,3 +868,15 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+-- Save with Ctrl + s
+vim.keymap.set('n', '<A-s>', ':w<CR>')
+
+-- Leave with Ctrl + q
+vim.keymap.set('n', '<A-q>', ':q<CR>')
+
+-- Fermer toutes les fenêtres avec Ctrl + Shift + q
+vim.keymap.set('n', '<A-S-q>', ':qa<CR>')
+
+-- Neotree
+vim.keymap.set('n', '&', '<Cmd>Neotree toggle<CR>')
