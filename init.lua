@@ -90,7 +90,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
+-- vim.keymap.set('n', '<left>', '<cdesio.j@live.frmd>echo "Use h to move!!"<CR>')
 -- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
 -- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
@@ -837,6 +837,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
   require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'custom.plugins.init',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
@@ -879,4 +880,14 @@ vim.keymap.set('n', '<A-q>', ':q<CR>')
 vim.keymap.set('n', '<A-S-q>', ':qa<CR>')
 
 -- Neotree
-vim.keymap.set('n', '&', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set('n', '<leader>n', '<Cmd>Neotree toggle<CR>')
+
+-- Fermer le buffer courant
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { desc = 'Delete current buffer' })
+
+-- Fermer le buffer courant sans perdre la disposition des fenêtres
+-- (très utile quand vous avez plusieurs splits)
+vim.keymap.set('n', '<leader>bc', ':bp<bar>sp<bar>bn<bar>bd<CR>', { desc = 'Close buffer but keep window layout' })
+
+-- ESSENTIAL Past without losing text
+vim.keymap.set('v', 'p', '"_dP')
